@@ -11,7 +11,11 @@
       </button>
     </header>
     <hr>
-    <ul class='contactsList__list'>
+    <ul
+      class='contactsList__list'
+      @touchstart="addHover"
+      @touchend="removeHover"
+    >
       <li class="contactsList__item item" v-for="contact of contactsList" :key="contact.name">
         <router-link
           :to="contact.linkto"
@@ -41,7 +45,17 @@ export default {
   name: 'ContactsList',
   computed: mapGetters(['contactsList']),
   methods: {
-    ...mapActions(['removeContact', 'createContact', 'selectContact'])
+    ...mapActions(['removeContact', 'createContact', 'selectContact']),
+    addHover(evt) {
+      if (evt.target.classList.contains('contactsList__item')) {
+        evt.target.classList.add('hover')
+      }
+    },
+    removeHover(evt) {
+      if (evt.target.classList.contains('contactsList__item')) {
+        evt.target.classList.remove('hover')
+      }
+    }
   },
   mounted() {
     this.selectContact(-1)

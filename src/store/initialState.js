@@ -12,12 +12,12 @@ export default {
       data: {
         email: 'test@test.com',
         url: null,
-        birthday: Date.now(),
-        adress: 'somewhere...',
+        birthday: new Date(0),
+        adress: 'г. Москва, ул. Пушкина 1',
       },
       custom: [
-        { name: 'имя', value: 'значение' },
-        { name: 'Новое имя', value: 'Новое значение' },
+        { name: 'Custom1', value: 'Custom value 1' },
+        { name: 'Custom2', value: 'Custom value 2' },
       ],
       prevState: null,
     },
@@ -33,8 +33,8 @@ export default {
       data: {
         email: null,
         url: null,
-        birthday: Date.now(),
-        adress: 'somewhere...',
+        birthday: new Date(5*1000*3600*24),
+        adress: null,
       },
       custom: [],
       prevState: null,

@@ -27,10 +27,15 @@ body {
   }
 
   &__container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
     width: 40vw;
+    height: min-content;
     min-width: 300px;
-    margin: 0 auto;
-    margin-top: 5rem;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 2px 1px 6px -1px black;
@@ -92,6 +97,7 @@ body {
     outline-color: black;
     box-shadow: 1px 1px 2px -1px black;
     border-radius: 3px;
+    font-size: 16px;
 
     &.valid {
       outline-color: #0d47a1;
@@ -313,6 +319,8 @@ body {
       box-shadow: 2px 2px 3px -1px $primary-border;
       padding: 0.5rem 1rem;
       margin: .5rem auto;
+      right: 0;
+      top: 0;
 
       &:hover {
         background-color: $primary-hover;
@@ -330,6 +338,9 @@ body {
       box-shadow: 2px 2px 3px -1px $primary-border;
       transform: rotate(90deg);
       right: 40px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
 
       &:hover {
         background-color: $primary-hover;
@@ -345,6 +356,9 @@ body {
       border: 1px solid $secondary-border;
       outline-color: $secondary-outline;
       box-shadow: 2px 2px 3px -1px $secondary-border;
+      top: 0;
+      bottom: 0;
+      margin: auto;
 
       &:hover {
         background-color: $secondary-hover;
@@ -370,6 +384,13 @@ body {
   }
 
   &:hover {
+    background-color: #fafafa;
+    button {
+      display: flex;
+    }
+  }
+
+  &.hover {
     background-color: #fafafa;
     button {
       display: flex;

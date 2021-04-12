@@ -2,7 +2,10 @@
   <div class="data">
     <h2>Данные контакта:</h2>
 
-    <p v-if="data.email" class="contactProp">
+    <p
+      v-if="data.email"
+      class="contactProp"
+    >
       <b>E-mail: </b>
       <a target='_blank' class="contactProp__email" :href="`mailto:${data.email}`" title="Написать письмо">{{data.email}}</a>
       <button
@@ -21,7 +24,10 @@
       </button>
     </p>
 
-    <p v-if="data.url" class="contactProp">
+    <p
+      v-if="data.url"
+      class="contactProp"
+    >
       <b>Веб-сайт: </b>
       <a target='_blank' class="contactProp__url" :href="data.url" title="Открыть в новой вкладке">{{data.url}}</a>
       <button
@@ -40,7 +46,10 @@
       </button>
     </p>
 
-    <p v-if="data.birthday" class="contactProp">
+    <p
+      v-if="data.birthday"
+      class="contactProp"
+    >
       <b>День рождения: </b>
       <span>{{new Date(data.birthday).toLocaleDateString()}}</span>
       <button
@@ -59,7 +68,10 @@
       </button>
     </p>
 
-    <p v-if="data.adress" class="contactProp">
+    <p
+      v-if="data.adress"
+      class="contactProp"
+    >
       <b>Адрес: </b>
       <span>{{data.adress}}</span>
       <button
@@ -96,11 +108,11 @@ export default {
   props: ['data'],
   computed: {
     addButtonVisibility: function() {
-    return Object.values(this.data).every(val => val === null ? false : true)
+      return Object.values(this.data).every(val => val === null ? false : true)
     }
   },
   methods: {
-    ...mapActions(['editDataField', 'removeDataField', 'addDataField'])
+    ...mapActions(['editDataField', 'removeDataField', 'addDataField']),
   },
 }
 </script>

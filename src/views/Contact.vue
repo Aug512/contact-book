@@ -1,5 +1,10 @@
 <template>
-  <div v-if="load" class="contact">
+  <div
+    v-if="load"
+    class="contact"
+    @touchstart="addHover"
+    @touchend="removeHover"
+  >
     <header class="contact__header">
       <h1 class="contact__title">{{currentContact.name}}</h1>
       <hr>
@@ -44,7 +49,19 @@ export default {
       return this.contactsList[this.contactIndex]
     },
   },
-  methods: mapActions(['revertLastChange', 'selectContact']),
+  methods: {
+    ...mapActions(['revertLastChange', 'selectContact']),
+    addHover(evt) {
+      if (evt.target.classList.contains('contactProp')) {
+        evt.target.classList.add('hover')
+      }
+    },
+    removeHover(evt) {
+      if (evt.target.classList.contains('contactProp')) {
+        evt.target.classList.remove('hover')
+      }
+    }
+  },
   components: {
     ContactNumbers,
     ContactData,

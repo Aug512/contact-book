@@ -22,8 +22,13 @@ import NewContactModal from './components/modals/NewContactModal'
 import './globalStyles.scss'
 
 export default {
+  data() {
+    return {
+      isMobile: false
+    }
+  },
   computed: {
-    ...mapGetters(['confirmModalData', 'phoneNumberModalData', 'userDataModalData', 'customFieldsModalData', 'newContactModalData'])
+    ...mapGetters(['confirmModalData', 'phoneNumberModalData', 'userDataModalData', 'customFieldsModalData', 'newContactModalData']),
   },
   components: {
     ConfirmModal,
@@ -31,6 +36,19 @@ export default {
     UserDataModal,
     CustomFieldsModal,
     NewContactModal,
+  },
+  beforeMount() {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      this.isMobile = true
+    }
+  },
+  updated() {
+    if (this.isMobile) {
+      const modal = document.querySelector('.modal__container')
+      if (modal) {
+        modal.style = 'margin-top: 1rem'
+      }
+    }
   }
 }
 </script>
